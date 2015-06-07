@@ -3,7 +3,7 @@ A simple python implementation of the famous game Reversi. More information abou
 
 ![](http://res.cloudinary.com/dawciw6nb/image/upload/v1433699892/Reversi_Games_for_the_Brain_q8tovd.png)
 
-# Desctiption
+# Description
 
 The game will have 3 modes:
 
@@ -13,4 +13,6 @@ The game will have 3 modes:
 
 It will have graphical user interface, which will resemble the above picture. 
 The GUI will be implemented using QT or PyGame.
+
+The algorithm that is going to be used for the AI is minimax with alpha beta pruning.  
 
