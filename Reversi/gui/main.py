@@ -7,7 +7,7 @@ class MainWindow():
 
     def setup_ui(self, window):
         window.setObjectName("Reversi")
-        window.resize(500, 500)
+        window.resize(400, 400)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
