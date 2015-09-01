@@ -1,6 +1,7 @@
 import sys
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QApplication, QGridLayout, QPushButton, QWidget
+from main_window import *
 
 MENU_TITLE = "Menu"
 
@@ -11,6 +12,7 @@ class MenuDialog(QWidget):
         super().__init__()
 
         self.setWindowTitle(MENU_TITLE)
+        self.game_window = MainWindow()
         againstComputer = QPushButton("&Play against Computer")
         againstComputer.setFocusPolicy(Qt.NoFocus)
         againstComputer.clicked.connect(self.start_against_computer)
@@ -31,13 +33,13 @@ class MenuDialog(QWidget):
         self.resize(400, 400)
 
     def start_against_computer(self):
-        pass
+        self.game_window.show()
 
     def start_against_player(self):
-        pass
+        self.game_window.show()
 
     def start_watch_computers(self):
-        pass
+        self.game_window.show()
 
 
 if __name__ == '__main__':
