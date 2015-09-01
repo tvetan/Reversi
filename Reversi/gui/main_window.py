@@ -4,10 +4,13 @@ import sys
 import os
 
 
+WINDOW_TITLE = "Reversi"
+
+
 class MainWindow():
 
     def setup_ui(self, window):
-        window.setObjectName("Reversi")
+        window.setWindowTitle(WINDOW_TITLE)
         window.resize(400, 400)
 
     def center(self, window):
