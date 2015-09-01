@@ -1,8 +1,12 @@
+from gui.gui import *
+from common.board import *
+
 
 class Game():
 
-    def __init__(self, board):
-        self.board = board
+    def __init__(self, gui):
+        self.board = Board()
+        self.gui = gui
 
-    def run():
-        pass
+    def run(self):
+        self.gui.show()

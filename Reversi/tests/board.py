@@ -3,7 +3,7 @@ from common.board import *
 from common.state import State
 
 
-class TestGrid(unittest.TestCase):
+class TestBoard(unittest.TestCase):
 
     def setUp(self):
         self.board = Board()
@@ -59,6 +59,20 @@ class TestGrid(unittest.TestCase):
         pieces = self.board.is_valid_move(2, 3, State.black)
         self.assertEqual(1, len(pieces))
 
-    # def test_is_valid_move_on_emty_piece_2_2(self):
-    #     pieces = self.board.is_valid_move(2, 3, State.black)
-    #     self.assertEqual(1, len(pieces))
+    def test_is_valid_move_on_emty_piece_4_5(self):
+        pieces = self.board.is_valid_move(4, 5, State.black)
+        self.assertEqual(1, len(pieces))
+
+    def test_get_valid_moves_black(self):
+        valid_moves = self.board.get_valid_moves(State.black)
+        self.assertEqual((2, 3), valid_moves[0])
+        self.assertEqual((3, 2), valid_moves[1])
+        self.assertEqual((4, 5), valid_moves[2])
+        self.assertEqual((5, 4), valid_moves[3])
+
+    def test_get_valid_moves_white(self):
+        valid_moves = self.board.get_valid_moves(State.white)
+        self.assertEqual((2, 4), valid_moves[0])
+        self.assertEqual((3, 5), valid_moves[1])
+        self.assertEqual((4, 2), valid_moves[2])
+        self.assertEqual((5, 3), valid_moves[3])
