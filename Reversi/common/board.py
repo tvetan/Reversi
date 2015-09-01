@@ -34,10 +34,10 @@ class Board():
             for x in range(self.height)
         ]
 
-        self.change_piece(int(WIDTH/2)-1, int(HEIGHT/2)-1, State.white)
-        self.change_piece(int(WIDTH/2)-1, int(HEIGHT/2), State.black)
-        self.change_piece(int(WIDTH/2), int(HEIGHT/2)-1, State.black)
-        self.change_piece(int(WIDTH/2), int(HEIGHT/2), State.white)
+        self.change_piece(int(WIDTH / 2) - 1, int(HEIGHT / 2) - 1, State.white)
+        self.change_piece(int(WIDTH / 2) - 1, int(HEIGHT / 2), State.black)
+        self.change_piece(int(WIDTH / 2), int(HEIGHT / 2) - 1, State.black)
+        self.change_piece(int(WIDTH / 2), int(HEIGHT / 2), State.white)
 
     def make_white(self, x, y):
         self.change_piece(x, y, State.white)
