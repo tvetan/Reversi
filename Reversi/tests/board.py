@@ -76,3 +76,38 @@ class TestBoard(unittest.TestCase):
         self.assertEqual((3, 5), valid_moves[1])
         self.assertEqual((4, 2), valid_moves[2])
         self.assertEqual((5, 3), valid_moves[3])
+
+    def test_make_black(self):
+        self.board.make_black(1, 1)
+        self.assertEqual(self.board.pieces[1][1].state, State.black)
+
+    def test_make_white(self):
+        self.board.make_white(1, 1)
+        self.assertEqual(self.board.pieces[1][1].state, State.white)
+
+    def test_make_empty(self):
+        self.board.make_empty(3, 3)
+        self.assertEqual(self.board.pieces[3][3].state, State.empty)
+
+    def test_change_piece_sets_black(self):
+        self.board.change_piece(1, 1, State.black)
+        self.assertEqual(self.board.pieces[1][1].state, State.black)
+
+    def test_change_piece_sets_white(self):
+        self.board.change_piece(1, 1, State.white)
+        self.assertEqual(self.board.pieces[1][1].state, State.white)
+
+    def test_change_piece_sets_empty(self):
+        self.board.change_piece(3, 3, State.empty)
+        self.assertEqual(self.board.pieces[3][3].state, State.empty)
+
+    def test_reset(self):
+        self.board.make_empty(3, 3)
+        self.board.make_empty(3, 4)
+        self.board.make_empty(4, 3)
+        self.board.make_empty(4, 4)
+        self.board = self.board.reset()
+        self.assertEqual(self.board.pieces[3][3].state, State.white)
+        self.assertEqual(self.board.pieces[3][4].state, State.black)
+        self.assertEqual(self.board.pieces[4][3].state, State.black)
+        self.assertEqual(self.board.pieces[4][4].state, State.white)

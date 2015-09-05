@@ -6,23 +6,6 @@ WIDTH = 8
 DIRECTIONS = ((0, 1), (1, 1), (1, 0), (1, -1),
               (0, -1), (-1, -1), (-1, 0), (-1, 1))
 
-CORNERS = ((0, 0), (WIDTH-1, 0), (0, HEIGHT-1), (WIDTH-1, HEIGHT-1))
-
-FIRST_ROW = tuple((x, 0) for x in range(2, WIDTH-2))
-FIRST_COLUMN = tuple((0, y) for y in range(2, HEIGHT-2))
-LAST_ROW = tuple((x, HEIGHT-1) for x in range(2, WIDTH-2))
-LAST_COLUMN = tuple((WIDTH-1, y) for y in range(2, HEIGHT-2))
-EDGES = FIRST_ROW + FIRST_COLUMN + LAST_COLUMN+LAST_ROW
-
-BAD_SECTORS = ((1, 0), (1, 1), (0, 1), (WIDTH-2, 0), (WIDTH-1, 1),
-               (WIDTH-2, 1), (0, HEIGHT-2), (HEIGHT-1, 1), (HEIGHT-2, 1),
-               (WIDTH-2, HEIGHT-1), (WIDTH-2, HEIGHT-2), (WIDTH-1, HEIGHT-2))
-
-RISK_SECTORS = tuple((sector[0], sector[1]+1) for sector in FIRST_ROW) + \
-    tuple((sector[0]+1, sector[1]) for sector in FIRST_COLUMN) + \
-    tuple((sector[0], sector[1]-1) for sector in LAST_ROW) + \
-    tuple((sector[0]-1, sector[1]) for sector in LAST_COLUMN)
-
 
 class Board():
 
@@ -110,15 +93,3 @@ class Board():
                        if self.is_valid_move(x, y, colour)]
 
         return valid_moves
-
-    def is_on_corner(self, sector):
-        return (sector[0], sector[1]) in CORNERS
-
-    def is_on_edge(self, sector):
-        return (sector[0], sector[1]) in EDGES
-
-    def is_bad_sector(self, sector):
-        return (sector[0], sector[1]) in BAD_SECTORS
-
-    def is_risk_sector(self, sector):
-        return (sector[0], sector[1]) in RISK_SECTORS

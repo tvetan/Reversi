@@ -15,14 +15,14 @@ class Player():
         self.score = 2
 
     def make_move(self, mousex, mousey, other_player):
-        tiles_to_flip = self.board.is_valid_move(mousex, mousey)
+        tiles_to_flip = self.board.is_valid_move(mousex, mousey, self.colour)
 
         if not tiles_to_flip:
             return False
 
         self.board.pieces[mousex][mousey].state = self.colour
         for move in tiles_to_flip:
-            self.board.pieces[move[0]][move[1]] = self.colour
+            self.board.pieces[move[0]][move[1]].state = self.colour
 
         self.score += 1 + len(tiles_to_flip)
         other_player.score -= len(tiles_to_flip)

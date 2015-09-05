@@ -1,8 +1,8 @@
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import QGridLayout, QLabel, QWidget
+from PyQt5.QtWidgets import QGridLayout, QLabel, QDialog
 
 
-class MessageDialog(QWidget):
+class MessageDialog(QDialog):
 
     def __init__(self, message):
         super().__init__()
